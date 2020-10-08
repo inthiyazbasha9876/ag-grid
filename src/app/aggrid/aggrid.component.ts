@@ -21,14 +21,12 @@ export class AggridComponent implements OnInit {
   filterCount: number = 0
 
   gridOptions
-  csvContent: string;
   defaultColDef = {
     sortable: true,
     filter: true,
     minwidth: 100,
     resizable: true,
-    enableRangeSelection: true,
-    domLayout: 'autoHeight',
+    floatingFilter: true,
   };
 
 
@@ -48,7 +46,7 @@ export class AggridComponent implements OnInit {
     })
   }
 
-  settoGrid(data){
+  settoGrid(data) {
     this.columnDefs = this.generateColumns(data)
     this.dummyRowdata = data
     this.rowData = data
@@ -58,7 +56,6 @@ export class AggridComponent implements OnInit {
     let columnDefinitions = [];
 
     data.map(object => {
-
       Object
         .keys(object)
         .map(key => {
@@ -142,11 +139,9 @@ export class AggridComponent implements OnInit {
     };
     this.gridOptions.api.exportDataAsCsv(params);
   }
-
   
   getExcelSheet(fileInput: any) {
     let fileReaded = fileInput.target.files[0];
-
     let reader: FileReader = new FileReader();
     reader.readAsText(fileReaded);
 
@@ -157,18 +152,19 @@ export class AggridComponent implements OnInit {
       let headers = lines[0].split(",");
       for (let i = 1; i < lines.length; i++) {
         let obj = {};
-        let currentline = lines[i].split(",");
+        let currentline = lines[i].split(',');
         for (let j = 0; j < headers.length; j++) {
-          let headerString=headers[j].replaceAll('"',"")
-          let dataString=currentline[j].replaceAll('"',"")
-          obj[headerString] = dataString;
+          let dataString = String(currentline[j])
+          console.log(dataString.toString());
+          obj[headers[j]] = currentline[j];
         }
         result.push(obj);
 
       }
       console.log(result);
-      
+
       this.settoGrid(result)
     }
   }
+
 }
