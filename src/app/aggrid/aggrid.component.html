@@ -1,0 +1,34 @@
+<h4>Ag Grid Practice</h4>
+<div class="row">
+  <div class="col-md-2 col-sm-12">
+    <label class="custom-file-upload">
+      <input type="file" (change)="getExcelSheet($event)">
+        Upload Excel
+  </label>
+  </div>
+  <div class="col-md-1 col-sm-12">
+    <button class="btn btn-primary" (click)="downloadCSV()">Export</button>
+  </div>
+
+  <div class="col-md-2  col-sm-12 m-2">
+    <input class="form-control" placeholder="Search using brand" (input)="search($event.target.value)">
+  </div>
+  <div class="col-md-2  col-sm-12 m-2">
+    <select class="form-control" (change)="filter($event.target.value)">
+      <option value="">--Select Range--</option>
+      <option value="50000-70000">50000-70000</option>
+      <option value="70000-100000">70000-100000</option>
+      <option value="100000-130000">100000-130000</option>
+      <option value="130000-150000">130000-150000</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-7">
+    <ag-grid-angular style="width: 100%; height: 350px;" class="ag-theme-alpine" [rowData]="rowData"
+      [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [animateRows]=true [pagination]=true
+       (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </div>
+</div>

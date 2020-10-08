@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "databindingPoc"
+    }
+  },
+  "defaultProject": "databindingPoc",
+  "cli": {
+    "analytics": "0e7b300a-8752-449f-aeae-3f9ddae2bf3e"
+  }
 }

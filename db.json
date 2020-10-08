@@ -1,0 +1,64 @@
+{
+  "bikeModals":[
+    {
+      "id":1,
+      "Brand":"Yamaha",
+      "Modal":"FZS 25",
+      "Price":157100
+    },
+    {
+      "id":2,
+      "Brand":"Yamaha",
+      "Modal":"MT-09",
+      "Price":164500
+    },
+    {
+      "id":3,
+      "Brand":"Yamaha",
+      "Modal":"Facino",
+      "Price":75000
+    },
+    {
+      "id":4,
+      "Brand":"TVS",
+      "Modal":"TVS Ntorq",
+      "Price":68500
+    },
+    {
+      "id":5,
+      "Brand":"TVS",
+      "Modal":"TVS Jupiter",
+      "Price":55000
+    },
+    {
+      "id":6,
+      "Brand":"TVS",
+      "Modal":"TVS Zest 110",
+      "Price":60000
+    },
+    {
+      "id":7,
+      "Brand":"Royal Enfield",
+      "Modal":"Classic",
+      "Price":150000
+    },
+    {
+      "id":8,
+      "Brand":"Honda",
+      "Modal":"CB Hornet",
+      "Price":129000
+    },
+    {
+      "id":9,
+      "Brand":"Honda",
+      "Modal":"CB Shaine",
+      "Price":85000
+    },
+    {
+      "id":10,
+      "Brand":"KTM",
+      "Modal":"Duke",
+      "Price":139000
+    }
+  ]
+}
