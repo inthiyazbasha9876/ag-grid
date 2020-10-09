@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-2 col-sm-12">
     <label class="custom-file-upload">
-      <input type="file" (change)="getExcelSheet($event)">
+      <input type="file" (change)="getExcelSheet($event)" accept=".xls,.xlsx,.csv">
         Upload Excel
   </label>
   </div>
@@ -14,7 +14,7 @@
     <input class="form-control" placeholder="Search using brand" (input)="search($event.target.value)">
   </div>
   <div class="col-md-2  col-sm-12 m-2">
-    <select class="form-control" (change)="filter($event.target.value)">
+    <select class="form-control" (change)="filter($event.target.value)" [disabled]="rangefilter">
       <option value="">--Select Range--</option>
       <option value="50000-70000">50000-70000</option>
       <option value="70000-100000">70000-100000</option>

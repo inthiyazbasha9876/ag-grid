@@ -17,8 +17,7 @@ export class AggridComponent implements OnInit {
   filterData: any
   searchedData: any
 
-  searchCount: number = 0
-  filterCount: number = 0
+  rangefilter:any=false
 
   gridOptions
   defaultColDef = {
@@ -81,29 +80,13 @@ export class AggridComponent implements OnInit {
   }
 
   filter(e) {
-    if (this.searchCount == 0) {
-      if (e != "") {
-        let rangeArray = e.split('-')
-        this.filterData = this.customDefined.filetrWithRange(this.dummyRowdata, rangeArray)
-        this.rowData = this.filterData
-        this.filterCount = 1
-      } else {
-        this.rowData = this.dummyRowdata
-        this.filterCount = 0
-      }
+    if (e != "") {
+      let rangeArray = e.split('-')
+      this.filterData = this.customDefined.filetrWithRange(this.dummyRowdata, rangeArray)
+      this.rowData = this.filterData
     } else {
-      if (e != "") {
-        let rangeArray = e.split('-')
-        this.filterData = this.customDefined.filetrWithRange(this.searchedData, rangeArray)
-        this.rowData = this.filterData
-        this.filterCount = 1
-      } else {
-        this.rowData = this.searchedData
-        this.filterCount = 0
-      }
+      this.rowData = this.dummyRowdata
     }
-
-
   }
 
   onGridReady(event) {
@@ -142,7 +125,7 @@ export class AggridComponent implements OnInit {
 
       }
       console.log(result);
-
+      this.rangefilter=true
       this.settoGrid(result)
     }
   }
