@@ -76,28 +76,8 @@ export class AggridComponent implements OnInit {
   }
 
   search(e) {
-    console.log(e);
-
-    if (this.filterCount == 0) {
-      if (e) {
-        this.searchedData = this.customDefined.searchStartWith(this.dummyRowdata, e)
-        this.rowData = this.searchedData
-        this.searchCount = 1
-      } else {
-        this.rowData = this.dummyRowdata
-        this.searchCount = 0
-      }
-    } else {
-      if (e) {
-        this.searchedData = this.customDefined.searchStartWith(this.filterData, e)
-        this.rowData = this.searchedData
-        this.searchCount = 1
-      } else {
-        this.rowData = this.filterData
-        this.searchCount = 0
-      }
-    }
-
+    console.log(e)
+    this.gridOptions.api.setQuickFilter(e)
   }
 
   filter(e) {
